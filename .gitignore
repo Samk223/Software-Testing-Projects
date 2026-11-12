@@ -1,0 +1,6 @@
+hs_err_pid*.log
+.env
+.env.*
+target/
+03-API-Testing/Evidence/
+.vscode/

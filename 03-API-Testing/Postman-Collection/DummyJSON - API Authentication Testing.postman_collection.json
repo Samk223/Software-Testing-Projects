@@ -1,0 +1,165 @@
+{
+  "info": {
+    "_exporter_id": "43045736",
+    "_postman_id": "64c3306e-18a3-4e97-8fc2-07a0d049e826",
+    "name": "DummyJSON - API Authentication Testing",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "item": [
+        {
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test(\"Status code is 200\", function () {\r\n    pm.response.to.have.status(200);\r\n});\r\n\r\npm.test(\"Access token is returned\", function () {\r\n    const response = pm.response.json();\r\n    pm.expect(response.accessToken).to.be.a(\"string\").and.not.empty;\r\n});\r\n\r\npm.test(\"User details are returned\", function () {\r\n    const response = pm.response.json();\r\n    pm.expect(response.id).to.exist;\r\n    pm.expect(response.username).to.eql(\"emilys\");\r\n});\r\n\r\nconst response = pm.response.json();\r\npm.collectionVariables.set(\"accessToken\", response.accessToken);"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "name": "Login - Valid Credentials",
+          "request": {
+            "body": {
+              "mode": "raw",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              },
+              "raw": "{\r\n  \"username\": \"emilys\",\r\n  \"password\": \"emilyspass\"\r\n}"
+            },
+            "header": [],
+            "method": "POST",
+            "url": {
+              "host": [
+                "dummyjson",
+                "com"
+              ],
+              "path": [
+                "auth",
+                "login"
+              ],
+              "protocol": "https",
+              "raw": "https://dummyjson.com/auth/login"
+            }
+          },
+          "response": []
+        },
+        {
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test(\"Status code is 200\", function () {\r\n    pm.response.to.have.status(200);\r\n});\r\n\r\npm.test(\"Authenticated user is Emily\", function () {\r\n    const response = pm.response.json();\r\n    pm.expect(response.username).to.eql(\"emilys\");\r\n    pm.expect(response.firstName).to.eql(\"Emily\");\r\n});\r\n\r\npm.test(\"User ID is returned\", function () {\r\n    const response = pm.response.json();\r\n    pm.expect(response.id).to.exist;\r\n});"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "name": "Get Current User - Valid Token",
+          "request": {
+            "auth": {
+              "bearer": [
+                {
+                  "key": "token",
+                  "type": "string",
+                  "value": "{{accessToken}}"
+                }
+              ],
+              "type": "bearer"
+            },
+            "header": [],
+            "method": "GET",
+            "url": {
+              "host": [
+                "dummyjson",
+                "com"
+              ],
+              "path": [
+                "auth",
+                "me"
+              ],
+              "protocol": "https",
+              "raw": "https://dummyjson.com/auth/me"
+            }
+          },
+          "response": []
+        },
+        {
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test(\"Status code is 401\", function () {\r\n    pm.response.to.have.status(401);\r\n});"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "name": "Get Current User - Missing Token",
+          "request": {
+            "header": [],
+            "method": "GET",
+            "url": {
+              "host": [
+                "dummyjson",
+                "com"
+              ],
+              "path": [
+                "auth",
+                "me"
+              ],
+              "protocol": "https",
+              "raw": "https://dummyjson.com/auth/me"
+            }
+          },
+          "response": []
+        },
+        {
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test(\"Status code is 401\", function () {\r\n    pm.response.to.have.status(401);\r\n});"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "name": "Get Current User - Invalid Token",
+          "request": {
+            "auth": {
+              "bearer": [
+                {
+                  "key": "token",
+                  "type": "string",
+                  "value": "{{vault:auth_secret_0g7f}}"
+                }
+              ],
+              "type": "bearer"
+            },
+            "header": [],
+            "method": "GET",
+            "url": {
+              "raw": ""
+            }
+          },
+          "response": []
+        }
+      ],
+      "name": "Authentication"
+    }
+  ],
+  "variable": [
+    {
+      "key": "accessToken",
+      "value": ""
+    }
+  ]
+}
