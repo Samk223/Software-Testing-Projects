@@ -2,7 +2,7 @@ Test Plan : E-commerce Website
 
 1. Project Overview
 
-Application: SauceDemo //https://www.saucedemo.com/?utm_source=chatgpt.com
+Application: SauceDemo //https://www.saucedemo.com
 
 Testing Type: Manual Testing
 Project Type: Independent QA Portfolio Project

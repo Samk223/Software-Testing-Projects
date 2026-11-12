@@ -134,19 +134,21 @@ public class SauceDemoTests {
 
         wait.until(ExpectedConditions.visibilityOfElementLocated(
                 By.id("first-name")));
+        
+        
+       wait.until(ExpectedConditions.visibilityOfElementLocated(
+        By.id("first-name"))).sendKeys("QA");
 
-        driver.findElement(By.id("first-name")).sendKeys("QA");
         driver.findElement(By.id("last-name")).sendKeys("Tester");
         driver.findElement(By.id("postal-code")).sendKeys("141001");
 
         driver.findElement(By.id("continue")).click();
 
         wait.until(ExpectedConditions.urlContains("checkout-step-two.html"));
-
         Assert.assertTrue(
                 driver.getCurrentUrl().contains("checkout-step-two.html"),
                 "Checkout overview should be displayed");
-    }
+        }
 
     @Test
     public void completeOrderTest() {
@@ -168,14 +170,19 @@ public class SauceDemoTests {
         wait.until(ExpectedConditions.visibilityOfElementLocated(
                 By.id("first-name")));
 
-        driver.findElement(By.id("first-name")).sendKeys("QA");
+        wait.until(ExpectedConditions.visibilityOfElementLocated(
+        By.id("first-name"))).sendKeys("QA");
+
         driver.findElement(By.id("last-name")).sendKeys("Tester");
         driver.findElement(By.id("postal-code")).sendKeys("141001");
 
+
         driver.findElement(By.id("continue")).click();
 
+        wait.until(ExpectedConditions.urlContains("checkout-step-two.html"));
+
         wait.until(ExpectedConditions.elementToBeClickable(
-                By.id("finish"))).click();
+        By.id("finish"))).click();
 
         WebElement confirmation = wait.until(
                 ExpectedConditions.visibilityOfElementLocated(
@@ -184,7 +191,7 @@ public class SauceDemoTests {
         Assert.assertTrue(
                 confirmation.getText().contains("Thank you for your order"),
                 "Order confirmation should be displayed");
-    }
+        }
 
     @AfterMethod
     public void tearDown() {
