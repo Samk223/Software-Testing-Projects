@@ -1,4 +1,4 @@
-//--------------- Software Testing Portfolio --------------------
+## Software Testing Portfolio 
 
 A collection of independent software testing projects demonstrating practical skills in manual testing, UI automation, and API testing.
 
