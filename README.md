@@ -37,7 +37,7 @@ A collection of independent software testing projects demonstrating practical sk
  Location:  `02-Selenium-Automation/`
 
  ## 3. API Authentication Testing
- Application:  DummyJSON API
+ Application:  [DummyJSON API](https://dummyjson.com/auth/login)
 
  Tools:  Postman
 
@@ -63,7 +63,7 @@ Execution results:
  Location:  `03-API-Testing/`
 
 ## 4. Employee Records — Functional UI Testing
- Application:  DemoQA Web Tables
+ Application:  [DemoQA Web Tables](https://demoqa.com/webtables)
 
  Tools: 
 - Java
