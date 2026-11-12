@@ -3,8 +3,6 @@
 A collection of independent software testing projects demonstrating practical skills in manual testing, UI automation, and API testing.
 
  Projects
-
-//-------------------------------------------------------
  1. E-commerce — Manual Testing
  Application:  [SauceDemo](https://www.saucedemo.com/)
 
@@ -18,7 +16,6 @@ A collection of independent software testing projects demonstrating practical sk
 
  Location:  `01-Manual-Testing/`
 
-//-------------------------------------------------------
  2. E-commerce — Selenium Automation
  Application:  [SauceDemo](https://www.saucedemo.com/)
 
@@ -39,7 +36,6 @@ A collection of independent software testing projects demonstrating practical sk
 
  Location:  `02-Selenium-Automation/`
 
-//---------------------------------------------------
  3. API Authentication Testing
  Application:  DummyJSON API
 
