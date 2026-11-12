@@ -37,7 +37,7 @@ A collection of independent software testing projects demonstrating practical sk
  Location:  `02-Selenium-Automation/`
 
  ## 3. API Authentication Testing
- Application:  [DummyJSON API](https://dummyjson.com/auth/login)
+ Application:  [DummyJSON API]((https://dummyjson.com))
 
  Tools:  Postman
 
