@@ -3,6 +3,7 @@
 A collection of independent software testing projects demonstrating practical skills in manual testing, UI automation, and API testing.
 
  Projects
+ 
  Documentation of all the projects : [Notion link](https://app.notion.com/p/Test-Case-Documentation-416a7f0a72bd80afae33f57a049a00c3?source=copy_link)
  ## 1. E-commerce — Manual Testing
  Application:  [SauceDemo](https://www.saucedemo.com/)
